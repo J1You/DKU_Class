@@ -1,26 +1,24 @@
 #include <stdio.h>
-
 int main(void)
 {
    char ch1, ch2;
 
-   printf("¹®ÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+   printf("ë¬¸ìë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
    scanf("%c", &ch1);
    getchar();
    scanf("%c", &ch2);
-   printf("%cÀÇ ASCII ÄÚµå °ªÀº %dÀÌ°í %cÀÇ ASCII ÄÚµå °ªÀº %dÀÔ´Ï´Ù.\n", ch1, ch1, ch2, ch2);
+   printf("%cì˜ ASCII ì½”ë“œ ê°’ì€ %dì´ê³  %cì˜ ASCII ì½”ë“œ ê°’ì€ %dì…ë‹ˆë‹¤.\n", ch1, ch1, ch2, ch2);
 
    printf("=====================================================");
    printf("\n");
 
    rewind(stdin); 
 
-   printf("¹®ÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+   printf("ë¬¸ìë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
    scanf("%c", &ch1);
    getchar();
    scanf("%c", &ch2);
-   printf("%cÀÇ ASCII ÄÚµå °ªÀº %dÀÌ°í %cÀÇ ASCII ÄÚµå °ªÀº %dÀÔ´Ï´Ù.\n", ch1, ch1, ch2, ch2);
+   printf("%cì˜ ASCII ì½”ë“œ ê°’ì€ %dì´ê³  %cì˜ ASCII ì½”ë“œ ê°’ì€ %dì…ë‹ˆë‹¤.\n", ch1, ch1, ch2, ch2);
 
    return 0;
-
 }
