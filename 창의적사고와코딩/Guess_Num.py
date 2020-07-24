@@ -16,3 +16,5 @@ while guess != ans:
 
     tries += 1
 print("축하합니다! 정답은 %s 시도횟수 = %s"%(ans,tries))
+
+
