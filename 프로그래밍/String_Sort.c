@@ -1,36 +1,34 @@
 #include <stdio.h>
 #include <string.h>
-
 int main()
 {
-	char str[7][8] = { "seoul","daejeon","daegu", "kwangju","inchon","jeju","busan" }; //ÀÌÂ÷¿ø ¹è¿­ ¼±¾ğ
+	char str[7][8] = { "seoul","daejeon","daegu", "kwangju","inchon","jeju","busan" }; //ì´ì°¨ì› ë°°ì—´ ì„ ì–¸
 	char temp[8];
 
-	printf("=== Á¤·ÄÇÏ±â Àü ===\n");
+	printf("=== ì •ë ¬í•˜ê¸° ì „ ===\n");
 	for (int i = 0; i < 7; i++) {
-		printf("%s  ", str[i]); // Á¤·Ä Àü ¹®ÀÚ¿­ ¹è¿­ Ãâ·Â
+		printf("%s  ", str[i]); // ì •ë ¬ ì „ ë¬¸ìì—´ ë°°ì—´ ì¶œë ¥
 	}
 	printf("\n\n");
 
 	for (int i = 0; i < 6; i++) {
-		int index = i;  // °¡Àå ÀÛÀº ¹®ÀÚÀÇ À§Ä¡¸¦ ÀúÀåÇÏ´Âindex ¸¦ i·Î ÃÊ±âÈ­
+		int index = i;  // ê°€ì¥ ì‘ì€ ë¬¸ìì˜ ìœ„ì¹˜ë¥¼ ì €ì¥í•˜ëŠ”index ë¥¼ ië¡œ ì´ˆê¸°í™”
 
 		for (int j = i + 1; j < 7; j++) {
 			if (strcmp(str[index], str[j]) > 0) {
 
-				index = j;  // str[j]°¡ str[index]º¸´Ù ÀÛÀ¸¸é index¿¡ j¸¦ ÀúÀå 
+				index = j;  // str[j]ê°€ str[index]ë³´ë‹¤ ì‘ìœ¼ë©´ indexì— jë¥¼ ì €ì¥ 
 			}
 		}
 		strcpy(temp, str[i]);
 		strcpy(str[i], str[index]);
 		strcpy(str[index], temp);
 
-	} // ¼±ÅÃ Á¤·ÄÀ» ÀÌ¿ëÇÏ¿© ¹®ÀÚ¿­À» ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+	} // ì„ íƒ ì •ë ¬ì„ ì´ìš©í•˜ì—¬ ë¬¸ìì—´ì„ ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ì •ë ¬
 
-	printf("=== Á¤·ÄÇÑ ´ÙÀ½ ===\n");
+	printf("=== ì •ë ¬í•œ ë‹¤ìŒ ===\n");
 	for (int i = 0; i < 7; i++) {
-		printf("%s  ", str[i]); // Á¤·Ä ÈÄ ¹®ÀÚ¿­ ¹è¿­ Ãâ·Â
+		printf("%s  ", str[i]); // ì •ë ¬ í›„ ë¬¸ìì—´ ë°°ì—´ ì¶œë ¥
 	}
 	return 0;
 }
-
