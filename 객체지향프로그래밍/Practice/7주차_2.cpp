@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 class queue {
@@ -81,4 +81,4 @@ int main()
 	a.reverse_print(4);
 	return 0;
 }
-*/
+
