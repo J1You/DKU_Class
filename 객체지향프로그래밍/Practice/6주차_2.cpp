@@ -35,6 +35,6 @@ int main()
 	cin >> a >> b >> c;
 	mybox.setbox(a, b, c);
 	mybox.calcvolume();
-	cout << "ºÎÇÇ: " << mybox.vol();
+	cout << "ÅŸÃŽÃ‡Ã‡: " << mybox.vol();
 	return 0;
 }

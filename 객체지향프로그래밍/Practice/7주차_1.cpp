@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <string>
 using namespace std;
 
@@ -34,7 +34,7 @@ int main()
 {
 	char str[] = "I am studing C++ language.";
 	mystring my(str);
-	cout << "¹®ÀÚ¿­ ±æÀÌ: " << my.strlength() << endl;
-	cout << "¹®ÀÚ aÀÇ °³¼ö: " << my.numchar('a') << endl;
+	cout << "Â¹Â®Ã€ÃšÂ¿Â­ Â±Ã¦Ã€ÃŒ: " << my.strlength() << endl;
+	cout << "Â¹Â®Ã€Ãš aÃ€Ã‡ Â°Â³Â¼Ã¶: " << my.numchar('a') << endl;
 	return 0;
-}*/
+}
