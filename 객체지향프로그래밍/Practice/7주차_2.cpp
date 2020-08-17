@@ -62,7 +62,7 @@ int queue::max()
 void queue::reverse_print(int num)
 {
 	if (rloc == sloc) {
-		cout << "¾øÀ½" << endl;
+		cout << "Â¾Ã¸Ã€Â½" << endl;
 		return;
 	}
 	for (int i = sloc; i > sloc - 4; i--) cout << q[i] << " ";
