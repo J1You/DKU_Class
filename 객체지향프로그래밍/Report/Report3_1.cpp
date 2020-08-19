@@ -1,4 +1,4 @@
-﻿/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 class coord {
@@ -39,4 +39,4 @@ int main()
 	c.get_xy(xx, yy); // 나눈 결과 저장
 	cout << "/의 결과(x,y): " << xx << ',' << yy << endl; // 나눈 결과 출력
 	return 0;
-}*/
+}
