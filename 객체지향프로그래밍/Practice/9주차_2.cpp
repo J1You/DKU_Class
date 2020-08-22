@@ -1,5 +1,4 @@
-/*
-//ÁÂÇ¥ »çÀÌ °Å¸®
+//ì¢Œí‘œ ì‚¬ì´ ê±°ë¦¬
 #include <iostream>
 #include <math.h>
 using namespace std;
@@ -25,8 +24,7 @@ double distance2(point a, point b)
 int main()
 {
 	point p1(3, 4), p2(-1, -5);
-	cout << "p1, p2 »çÀÌ°Å¸®= " << p1.two_distance(p2) << endl;
-	cout << "p1, p2 »çÀÌ°Å¸®= " << distance2(p1, p2) << endl;
+	cout << "p1, p2 ì‚¬ì´ê±°ë¦¬= " << p1.two_distance(p2) << endl;
+	cout << "p1, p2 ì‚¬ì´ê±°ë¦¬= " << distance2(p1, p2) << endl;
 	return 0;
 }
-*/
