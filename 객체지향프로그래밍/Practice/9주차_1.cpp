@@ -1,4 +1,3 @@
-﻿/*
 //원점 거리 계산
 
 #include <iostream>
@@ -27,4 +26,3 @@ int main()
 	cout << "p2의 원점거리= " << p2.origin_distance() << endl;
 	return 0;
 }
-*/
