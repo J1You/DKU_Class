@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 class three_d {
@@ -63,4 +63,4 @@ int main()
 	--c;
 	c.show();
 	return 0;
-}*/
+}
