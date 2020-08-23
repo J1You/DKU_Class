@@ -1,5 +1,4 @@
-/*
-// »ç°¢Çü ¸éÀû 
+// ì‚¬ê°í˜• ë©´ì  
 #include <iostream>
 #include <math.h>
 using namespace std;
@@ -29,8 +28,7 @@ int rectangle::largearea(rectangle rect)
 int main()
 {
 	rectangle r1(1, 1, 3, 4), r2(-1, -2, 1, -5);
-	cout << "»ç°¢Çü1ÀÇ ¸éÀû= " << r1.area() << endl;
-	cout << "´õ Å« »ç°¢ÇüÀÇ ¸éÀû= " << r1.largearea(r2) << endl;
+	cout << "ì‚¬ê°í˜•1ì˜ ë©´ì = " << r1.area() << endl;
+	cout << "ë” í° ì‚¬ê°í˜•ì˜ ë©´ì = " << r1.largearea(r2) << endl;
 	return 0;
 }
-*/
