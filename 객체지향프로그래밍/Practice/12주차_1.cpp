@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <cstring>
 using namespace std;
 
@@ -40,4 +40,4 @@ int main()
 	p->put_title("The Tempest");
 	p->show_author();
 	return 0;
-}*/
+}
