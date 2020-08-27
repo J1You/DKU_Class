@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 template <class MType> class Give_Max {
@@ -29,16 +29,16 @@ template <class MType> MType Give_Max<MType>::max()
 int main()
 {
 	int n;
-	cout << "nÀÔ·Â: ";
+	cout << "nìž…ë ¥: ";
 	cin >> n;
 	Give_Max<int> a(n);
 	a.input();
-	cout << "Á¤¼ö ÃÖ´ë°ª: " << a.max() << endl;
+	cout << "ì •ìˆ˜ ìµœëŒ€ê°’: " << a.max() << endl;
 
-	cout << "nÀÔ·Â: ";
+	cout << "nìž…ë ¥: ";
 	cin >> n;
 	Give_Max<double> b(n);
 	b.input();
-	cout << "½Ç¼ö ÃÖ´ë°ª: " << b.max() << endl;
+	cout << "ì‹¤ìˆ˜ ìµœëŒ€ê°’: " << b.max() << endl;
 	return 0;
-}*/
+}
