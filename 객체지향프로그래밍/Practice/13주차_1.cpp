@@ -1,4 +1,4 @@
-/*#include<iostream>
+#include<iostream>
 using namespace std;
 
 double divide(double a, double b)
@@ -26,4 +26,4 @@ int main()
 	divide(a, b);
 
 	return 0;
-}*/
+}
