@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 class box {
@@ -7,7 +7,7 @@ private:
 public:
 	box() { l = w = h = 0; }
 	box(double a, double b, double c) { l = a; w = b; h = c; }
-	void vol() { cout << "ºÎÇÇ: " << l * w * h << "\n";}
+	void vol() { cout << "ÂºÃŽÃ‡Ã‡: " << l * w * h << "\n";}
 	friend box add_box(box o1, box o2);
 	box operator*(box o1);
 	box operator=(box o2);
@@ -46,4 +46,3 @@ int main()
 	z = x * y; z.vol();
 	return 0;
 }
-*/

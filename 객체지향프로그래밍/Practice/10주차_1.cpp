@@ -1,4 +1,3 @@
-// 사각형 면적 
 #include <iostream>
 #include <math.h>
 using namespace std;
