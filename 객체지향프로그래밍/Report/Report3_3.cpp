@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 using namespace std;
 
 class coord {
@@ -8,15 +8,15 @@ public:
 	coord() { x = 0; y = 0; }
 	coord(int i, int j) { x = i; y = j; }
 	void get_xy(int& i, int& j) { i = x; j = y; }
-	coord operator--(); // --Áßº¹¿¬»êÀÚ (Á¢µÎ»ç)
-	coord operator--(int notused); // --Áßº¹¿¬»êÀÚ (Á¢¹Ì»ç)
+	coord operator--(); // --ì¤‘ë³µì—°ì‚°ì (ì ‘ë‘ì‚¬)
+	coord operator--(int notused); // --ì¤‘ë³µì—°ì‚°ì (ì ‘ë¯¸ì‚¬)
 };
 
 coord coord::operator--()
 {
 	x--; y--;
 	return *this;
-} // Á¢µÎ»ç --Áßº¹¿¬»êÀÚ Á¤ÀÇ
+} // ì ‘ë‘ì‚¬ --ì¤‘ë³µì—°ì‚°ì ì •ì˜
 
 coord coord::operator--(int notused)
 {
@@ -24,21 +24,21 @@ coord coord::operator--(int notused)
 	temp = *this;
 	x--; y--;
 	return temp;
-} // Á¢¹Ì»ç --Áßº¹¿¬»êÀÚ Á¤ÀÇ
+} // ì ‘ë¯¸ì‚¬ --ì¤‘ë³µì—°ì‚°ì ì •ì˜
 
 int main()
 {
 	coord a(3, 4), b;
 	int xx, yy;
-	b = --a; //ÀüÄ¡--
+	b = --a; //ì „ì¹˜--
 	a.get_xy(xx, yy);
-	cout << "(Á¢µÎ»ç--) a: " << xx << ',' << yy << endl; // ÀüÄ¡-- ÈÄ a°á°ú Ãâ·Â
+	cout << "(ì ‘ë‘ì‚¬--) a: " << xx << ',' << yy << endl; // ì „ì¹˜-- í›„ aê²°ê³¼ ì¶œë ¥
 	b.get_xy(xx, yy);
-	cout << "(Á¢µÎ»ç--) b: " << xx << ',' << yy << endl; // ÀüÄ¡-- ÈÄ b°á°ú Ãâ·Â
-	b = a--; // ÈÄÄ¡--
+	cout << "(ì ‘ë‘ì‚¬--) b: " << xx << ',' << yy << endl; // ì „ì¹˜-- í›„ bê²°ê³¼ ì¶œë ¥
+	b = a--; // í›„ì¹˜--
 	a.get_xy(xx, yy);
-	cout << "(Á¢¹Ì»ç--) a: " << xx << ',' << yy << endl; // ÈÄÄ¡-- ÈÄ a°á°ú Ãâ·Â
+	cout << "(ì ‘ë¯¸ì‚¬--) a: " << xx << ',' << yy << endl; // í›„ì¹˜-- í›„ aê²°ê³¼ ì¶œë ¥
 	b.get_xy(xx, yy);
-	cout << "(Á¢¹Ì»ç--) b: " << xx << ',' << yy << endl; // ÈÄÄ¡-- ÈÄ b°á°ú Ãâ·Â
+	cout << "(ì ‘ë¯¸ì‚¬--) b: " << xx << ',' << yy << endl; // í›„ì¹˜-- í›„ bê²°ê³¼ ì¶œë ¥
 	return 0;
-}*/
+}
