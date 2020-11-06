@@ -97,3 +97,4 @@ and c.SalesRepEmployeeNumber = e.employeeNumber;
 select p.productname 
 from orderdetails od join products p on od.productcode = p.productcode 
 where od.ordernumber = 10100;
+
