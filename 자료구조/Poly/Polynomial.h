@@ -6,8 +6,8 @@ class Polynomial
 {
 private:
  	Term *termArray;
-	int capacity;    // ¹è¿­ÀÇ Å©±â
-	int terms;       // 0ÀÌ ¾Æ´Ñ Ç×ÀÇ ¼ö
+	int capacity;    // ë°°ì—´ì˜ í¬ê¸°
+	int terms;       // 0ì´ ì•„ë‹Œ í•­ì˜ ìˆ˜
 public:
 	void Print(void);
 	void NewTerm(const float theCoeff, const int theExp);
