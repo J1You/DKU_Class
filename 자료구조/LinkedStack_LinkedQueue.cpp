@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 using namespace std;
 
 class LinkedStack;   // 연결스택 전방선언
