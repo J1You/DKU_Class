@@ -1,0 +1,26 @@
+body{
+	margin: 0;
+}
+h1{
+	text-align: center;
+	margin: 0;
+}
+
+header{
+	background-color: #FFE785;
+	padding: 10px;
+}
+span{
+	display: grid;
+	grid-template-columns: 200px 1fr;
+}
+nav{
+	background-color: #FFB954;
+}
+section{
+	background-color: #B8DEFF;
+}
+footer{
+	background-color: #E4B7FF;
+	padding:10px;
+}
