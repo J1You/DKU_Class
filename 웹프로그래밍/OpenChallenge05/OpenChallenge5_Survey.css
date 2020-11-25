@@ -1,0 +1,17 @@
+h1{
+	text-align: center;
+}
+body{
+	margin: 0;
+}
+header{
+	background-color: #FFE785;
+}
+section{
+	background-color: #B8DEFF;
+	margin: 10px;
+}
+footer{
+	background-color: #E4B7FF;
+	padding: 3px
+}
