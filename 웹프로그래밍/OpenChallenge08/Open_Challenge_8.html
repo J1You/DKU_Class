@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>갬블링 게임</title>
+	<style type="text/css">
+		#ABC{
+			background-color: linen;
+			width: 150px;
+			height: 70px;
+			border: 1px solid grey;
+			padding-left: 10px;
+			font-size: 50px;
+			font-style: italic;
+			color: darkblue;
+		}
+		#result{
+			color: mediumpurple;
+			font-style: italic;
+		}
+		#ABC > span, #result{
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h3>겜블링 게임</h3>
+	각 숫자를 클릭하면 0에서 2사이의 난수로 바뀝니다. 모두 같은 수가 나오면 승리합니다.
+	<hr>
+	<div id="ABC">
+		<span id="a"> 0 </span>
+		<span id="b"> 0 </span>
+		<span id="c"> 0 </span>
+	</div>
+	<br>
+	<div id="result" onclick="again()"></div>
+
+	<script type="text/javascript">
+		let result = document.getElementById("result"),
+		numA = document.getElementById("a"),
+		numB = document.getElementById("b"),
+		numC = document.getElementById("c");
+
+		resetEventListener();
+
+		function resetEventListener(once=true){
+			numA.addEventListener('click', clickA, {once});
+			numB.addEventListener('click', clickB, {once});
+			numC.addEventListener('click', clickC, {once});
+		}
+		
+		function clickA(){
+			const randomNum = Math.floor(Math.random()*3);
+			numA.textContent = randomNum;
+		}
+
+		function clickB(){
+			const randomNum = Math.floor(Math.random()*3);
+			numB.textContent = randomNum;
+		}
+
+		function clickC(){
+			const randomNum = Math.floor(Math.random()*3);
+			numC.textContent = randomNum;
+			if((numA.textContent === numB.textContent) &&(numA.textContent === numC.textContent)){
+				result.textContent = "Success(click here to do again)"
+			} else{
+				result.textContent = "fail(click here to do again)"
+			}
+		}
+
+		function again(){
+			numA.textContent = 0,
+			numB.textContent = 0,
+			numC.textContent = 0,
+			result.textContent = '';
+			resetEventListener();
+		}
+	</script>
+</body>
+</html>
