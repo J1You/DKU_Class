@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta charset="utf-8">
-   <title>마우스 클릭 연습</title>
-   <style type="text/css">
-      table{
-         border: 1px solid;
-         border-collapse: collapse;
-      }
-      td{
-         border: 1px solid;
-         width: 50px;
-         height: 50px;
-      }
+    <title>눈 내리는 사걀의 마을</title>
+    <style type="text/css">
+        body{
+           background-image: url("./image.jpg");
+           background-size: 100%;
+           background-repeat: no-repeat;
+       }
+       div{
+           color: white;
+           font-size: 2rem;
+           font-weight: bold;
+           position: absolute;
+       }
    </style>
 </head>
-<body onload="set()">
-   <h3>마우스 클릭 연습</h3>
-   <hr>
-   <table id="table"></table>
+<body>
+ <script>
+    setInterval("Snow()",20);
+    const sum=[];
+    for(var i=0; i<30; i++){
+        sum[i]=0;
+    }
+    const topPoint=[];
+    const div=[];
 
-   <script type="text/javascript">
-      let select = 0;
-      function set(){
-         const table = document.getElementById("table");
+    for(var i=0; i<30; i++){
+        div[i]=document.createElement("div");
+        div[i].innerHTML="*";
+        document.body.appendChild(div[i]);
+        const a =Math.random()*1890;
+        const left=Math.floor(a);
+        const b =Math.random()*700;
+        const Top=Math.floor(b);
+        div[i].style.left=left+"px";
+        div[i].style.top=Top+"px";
+        topPoint[i]=Top;
+    }
 
-         for(var i = 0; i < 10; i++){
-            let row   = document.createElement("tr");
-            for(var j = 0; j < 10; j++){
-               let col = document.createElement("td");
-               col.innerHTML = "<img src=''>";
-               row.appendChild(col);
+    function Snow(){
+        for(var i=0; i<30; i++){
+            sum[i]++;
+            div[i].style.top=topPoint[i]+sum[i]+"px";
+            const Max=topPoint[i]+sum[i];
+            if(Max>860 ){
+                sum[i]=0;
+                topPoint[i]=0;
+                div[i].style.top=0+"px";
             }
-            table.appendChild(row);
-         }
-
-         for( var i =0 ; i < 100; i++){
-            document.images[i].onclick = move;
-         }
-         move();
-      }
-
-      function move(){
-         document.images[select].src = "";
-         
-         select = Math.floor(Math.random()*100);
-
-         document.images[select].src = "image.jpg";
-      }
-   </script>
+        }
+    }
+</script>
 </body>
 </html>
