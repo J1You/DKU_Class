@@ -13,7 +13,6 @@
 #ifndef _LAB1_HEADER_H
 #define _LAB1_HEADER_H
 
-
 /*
  * You need to Declare functions in  here
  */
@@ -22,25 +21,25 @@ typedef struct process
 {
     char name;
     int arrival;
-    int service; //½ÇÇàÇØ¾ßÇÏ´Â ½Ã°£
-    int runtime[3]; //½ÇÁ¦ ½ÇÇà½Ã°£
+    int service; //ì‹¤í–‰í•´ì•¼í•˜ëŠ” ì‹œê°„
+    int runtime[3]; //ì‹¤ì œ ì‹¤í–‰ì‹œê°„
     int r_run;
 }process;
 
 char Print[200];
 process Task[5];
 
-typedef struct Node //³ëµå Á¤ÀÇ
+typedef struct Node //ë…¸ë“œ ì •ì˜
 {
     process* data;
     struct Node* link;
 }Node;
 
-typedef struct Queue //Queue ±¸Á¶Ã¼ Á¤ÀÇ
+typedef struct Queue //Queue êµ¬ì¡°ì²´ ì •ì˜
 {
-    Node* front; //¸Ç ¾Õ(²¨³¾ À§Ä¡)
-    Node* rear; //¸Ç µÚ(º¸°üÇÒ À§Ä¡)
-    int count;//º¸°ü °³¼ö
+    Node* front; //ë§¨ ì•(êº¼ë‚¼ ìœ„ì¹˜)
+    Node* rear; //ë§¨ ë’¤(ë³´ê´€í•  ìœ„ì¹˜)
+    int count;//ë³´ê´€ ê°œìˆ˜
 }Queue;
 
 
