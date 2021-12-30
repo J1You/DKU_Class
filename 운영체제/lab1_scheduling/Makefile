@@ -1,8 +1,8 @@
 #
 #	DKU Operating System Lab
 #	    Lab1 (Scheduler Algorithm Simulator)
-#	    Student id : 
-#	    Student name : 
+#	    Student id : 32194747
+#	    Student name : Choi Ji Yun
 #
 #   Makfeile :
 #       - Makefile for lab1 compilation.
