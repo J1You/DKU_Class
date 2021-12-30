@@ -32,7 +32,7 @@
  * you need to implement FCFS, RR, SPN, SRT, HRRN, MLFQ scheduler.
  */
 
-void process1() // Ã¹¹øÂ° ÇÁ·Î¼¼½º ÄÉÀÌ½º
+void process1() // ì²«ë²ˆì§¸ í”„ë¡œì„¸ìŠ¤ ì¼€ì´ìŠ¤
 {
     Task[0].name = 'A';
     Task[0].arrival = 0;
@@ -76,7 +76,7 @@ void process1() // Ã¹¹øÂ° ÇÁ·Î¼¼½º ÄÉÀÌ½º
 
     char Print[200] = { '\0' };
 }
-void process2() //µÎ¹øÂ° ÇÁ·Î¼¼½º 
+void process2() //ë‘ë²ˆì§¸ í”„ë¡œì„¸ìŠ¤ 
 {
     Task[0].name = 'A';
     Task[0].arrival = 0;
@@ -136,50 +136,50 @@ int power(int x, int y)
 
     return result;
 
-} //Áö¼ö½ÂÀ» ±¸Çü ÇÏ±â À§ÇÑ ÇÔ¼ö 
+} //ì§€ìˆ˜ìŠ¹ì„ êµ¬í˜• í•˜ê¸° ìœ„í•œ í•¨ìˆ˜ 
 
 void InitQueue(Queue* queue)
 {
-    queue->front = queue->rear = NULL;  //front¿Í rear¸¦ NULL·Î ¼³Á¤
-    queue->count = 0;                   //º¸°ü °³¼ö¸¦ 0À¸·Î ¼³Á¤
-} //queue¸¦ 
+    queue->front = queue->rear = NULL;  //frontì™€ rearë¥¼ NULLë¡œ ì„¤ì •
+    queue->count = 0;                   //ë³´ê´€ ê°œìˆ˜ë¥¼ 0ìœ¼ë¡œ ì„¤ì •
+} //queueë¥¼ 
 
 int IsEmpty(Queue* queue)
 {
-    return queue->count == 0;          //º¸°ü °³¼ö°¡ 0ÀÌ¸é ºó »óÅÂ
+    return queue->count == 0;          //ë³´ê´€ ê°œìˆ˜ê°€ 0ì´ë©´ ë¹ˆ ìƒíƒœ
 }
 
 void Enqueue(Queue* queue, process* data)
 {
-    Node* now = (Node*)malloc(sizeof(Node));    //³ëµå »ı¼º
-    now->data = data;                           //µ¥ÀÌÅÍ ¼³Á¤
+    Node* now = (Node*)malloc(sizeof(Node));    //ë…¸ë“œ ìƒì„±
+    now->data = data;                           //ë°ì´í„° ì„¤ì •
     now->link = NULL;
 
-    if (IsEmpty(queue))                         //Å¥°¡ ºñ¾îÀÖÀ» ¶§
+    if (IsEmpty(queue))                         //íê°€ ë¹„ì–´ìˆì„ ë•Œ
     {
-        queue->front = now;                     //¸Ç ¾ÕÀ» now·Î ¼³Á¤       
+        queue->front = now;                     //ë§¨ ì•ì„ nowë¡œ ì„¤ì •       
     }
-    else                                        //ºñ¾îÀÖÁö ¾ÊÀ» ¶§
+    else                                        //ë¹„ì–´ìˆì§€ ì•Šì„ ë•Œ
     {
-        queue->rear->link = now;                //¸Ç µÚÀÇ ´ÙÀ½À» now·Î ¼³Á¤
+        queue->rear->link = now;                //ë§¨ ë’¤ì˜ ë‹¤ìŒì„ nowë¡œ ì„¤ì •
     }
-    queue->rear = now;                          //¸Ç µÚ¸¦ now·Î ¼³Á¤   
-    queue->count++;                             //º¸°ü °³¼ö¸¦ 1 Áõ°¡
+    queue->rear = now;                          //ë§¨ ë’¤ë¥¼ nowë¡œ ì„¤ì •   
+    queue->count++;                             //ë³´ê´€ ê°œìˆ˜ë¥¼ 1 ì¦ê°€
 }
 
 Node* Dequeue(Queue* queue)
 {
     Node* re = 0;
     Node* now;
-    if (IsEmpty(queue))         //Å¥°¡ ºñ¾úÀ» ¶§
+    if (IsEmpty(queue))         //íê°€ ë¹„ì—ˆì„ ë•Œ
     {
         return re;
     }
-    now = queue->front;         // front ¾ÕÀÇ ³ëµå¸¦ now¿¡ ±â¾ï
-    re = now;                   //¹İÈ¯ÇÒ °ªÀº nowÀÇ data·Î ¼³Á¤
-    queue->front = now->link;   //¸Ç ¾ÕÀº nowÀÇ ´ÙÀ½ ³ëµå·Î ¼³Á¤
-    free(now);                  //now ¼Ò¸ê
-    queue->count--;             //º¸°ü °³¼ö¸¦ 1 °¨¼Ò
+    now = queue->front;         // front ì•ì˜ ë…¸ë“œë¥¼ nowì— ê¸°ì–µ
+    re = now;                   //ë°˜í™˜í•  ê°’ì€ nowì˜ dataë¡œ ì„¤ì •
+    queue->front = now->link;   //ë§¨ ì•ì€ nowì˜ ë‹¤ìŒ ë…¸ë“œë¡œ ì„¤ì •
+    free(now);                  //now ì†Œë©¸
+    queue->count--;             //ë³´ê´€ ê°œìˆ˜ë¥¼ 1 ê°ì†Œ
     return re;
 }
 
@@ -190,12 +190,12 @@ void Show() {
         printf("%c ", p_name[j]);
         while (Print[i] != '\0') {
             if (Print[i] == p_name[j]) {
-                printf("¡á ");
+                printf("â–  ");
                 i++;
             }
             else {
                 if (Print[i] != p_name[j]) {
-                    printf("¡à ");
+                    printf("â–¡ ");
                     i++;
                 }
                 continue;
@@ -204,7 +204,7 @@ void Show() {
         printf("\n");
     }
    
-} // ±¸ÇöÇÑ ½ºÄÉÁì¸µ¿¡ ´ëÇÑ ±×¸²À» ±×·ÁÁÖ´Â ÇÔ¼ö 
+} // êµ¬í˜„í•œ ìŠ¤ì¼€ì¥´ë§ì— ëŒ€í•œ ê·¸ë¦¼ì„ ê·¸ë ¤ì£¼ëŠ” í•¨ìˆ˜ 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -215,14 +215,14 @@ void FIFO(process a, process b, process c, process d, process e) {
 
     while (time != 0) {
         int pcs;
-        for (int i = 0; i < 5; i++) { // ¼­ºñ½º¸¦ ½ÃÀÛÇÏÁö ¾ÊÀº ÇÁ·Î¼¼½º ÇÏ³ª ¼±ÅÃ
+        for (int i = 0; i < 5; i++) { // ì„œë¹„ìŠ¤ë¥¼ ì‹œì‘í•˜ì§€ ì•Šì€ í”„ë¡œì„¸ìŠ¤ í•˜ë‚˜ ì„ íƒ
             if (Task[i].r_run != Task[i].service) {
                 pcs = i;
                 break;
             }
         }
 
-        for (int i = 0; i < 5; i++) { // ¼±ÅÃµÈ ÇÁ·Î¼¼½ºº¸´Ù »¡¸® µµÂøÇÑ ÇÁ·Î¼¼½º°¡ ÀÖ´ÂÁö È®ÀÎ ¹× ÀÖÀ¸¸é ÇÁ·Î¼¼½º º¯°æ
+        for (int i = 0; i < 5; i++) { // ì„ íƒëœ í”„ë¡œì„¸ìŠ¤ë³´ë‹¤ ë¹¨ë¦¬ ë„ì°©í•œ í”„ë¡œì„¸ìŠ¤ê°€ ìˆëŠ”ì§€ í™•ì¸ ë° ìˆìœ¼ë©´ í”„ë¡œì„¸ìŠ¤ ë³€ê²½
             if ((Task[i].arrival < Task[pcs].arrival) && (Task[i].r_run != Task[i].service)) {
                 pcs = i;
             }
@@ -236,22 +236,22 @@ void FIFO(process a, process b, process c, process d, process e) {
             Task[pcs].r_run++;
         }
 
-        int turnaround_time = Task[pcs].arrival + Task[pcs].service; // µµÂø½Ã°£°ú ¼­ºñ½º½Ã°£À» ´õÇÑ´Ù
+        int turnaround_time = Task[pcs].arrival + Task[pcs].service; // ë„ì°©ì‹œê°„ê³¼ ì„œë¹„ìŠ¤ì‹œê°„ì„ ë”í•œë‹¤
 
-        while (1) { // ¾ÕÀÇ ÇÁ·Î¼¼½º°¡ ³¡³ª°í ´ÙÀ½ ÇÁ·Î¼¼½º¸¦ ½ÇÇàÇÒ¶§±îÁö °ø¹éÀÌ »ı±â´ÂÁö Á¶»ç ¹Ø °ø¹éÀÌ ÀÖÀ¸¸é ºóÄ­
+        while (1) { // ì•ì˜ í”„ë¡œì„¸ìŠ¤ê°€ ëë‚˜ê³  ë‹¤ìŒ í”„ë¡œì„¸ìŠ¤ë¥¼ ì‹¤í–‰í• ë•Œê¹Œì§€ ê³µë°±ì´ ìƒê¸°ëŠ”ì§€ ì¡°ì‚¬ ë°‘ ê³µë°±ì´ ìˆìœ¼ë©´ ë¹ˆì¹¸
             int count = 0;
             for (int i = 0; i < 5; i++) {
                 if (i == pcs) {
                     continue;
                 }
-                if (turnaround_time >= Task[i].arrival) { // µµÂø½Ã°£°ú ¼­ºñ½º½Ã°£À» ´õÇÑ °ªº¸´Ù ´Ù¸¥ taskÀÇ arrivalÀÌ ÀÛÀ¸¸é count++
+                if (turnaround_time >= Task[i].arrival) { // ë„ì°©ì‹œê°„ê³¼ ì„œë¹„ìŠ¤ì‹œê°„ì„ ë”í•œ ê°’ë³´ë‹¤ ë‹¤ë¥¸ taskì˜ arrivalì´ ì‘ìœ¼ë©´ count++
                     count++;
                 }
             }
-            if (count > 0) { // ÇÑ °³ÀÇ task¶óµµ turnaroundº¸´Ù ÀÛÀº°ªÀÌ ÀÖÀ¸¸é °ø¹éÀÌ »ı±âÁö ¾Ê´Â´Ù
+            if (count > 0) { // í•œ ê°œì˜ taskë¼ë„ turnaroundë³´ë‹¤ ì‘ì€ê°’ì´ ìˆìœ¼ë©´ ê³µë°±ì´ ìƒê¸°ì§€ ì•ŠëŠ”ë‹¤
                 break;
             }
-            turnaround_time++; // turnaroundº¸´Ù ÀÛÀº°ªÀÌ ¾øÀ¸¹Ç·Î °ø¹éÀ» ¸¸µé°í µµÂøÇÏ´Â ´Ù¸¥ task¸¦ Á¶»çÇÏ±â À§ÇØ turnaround++
+            turnaround_time++; // turnaroundë³´ë‹¤ ì‘ì€ê°’ì´ ì—†ìœ¼ë¯€ë¡œ ê³µë°±ì„ ë§Œë“¤ê³  ë„ì°©í•˜ëŠ” ë‹¤ë¥¸ taskë¥¼ ì¡°ì‚¬í•˜ê¸° ìœ„í•´ turnaround++
             Print[print_count] = 'X';
             print_count++;
         }
@@ -262,10 +262,10 @@ void FIFO(process a, process b, process c, process d, process e) {
 
 void RR(process a, process b, process c, process d, process e, int q)
 {
-    int time_Slice = q; //Å¸ÀÓ ÄöÅÒ
-    int time_count = 0; // ÁøÇà Ä«¿îÆ®
+    int time_Slice = q; //íƒ€ì„ í€€í…€
+    int time_count = 0; // ì§„í–‰ ì¹´ìš´íŠ¸
     int time = a.service + b.service + c.service + d.service + e.service;
-    Queue RR_Queue; // RR¿ë Å¥ »ı¼º
+    Queue RR_Queue; // RRìš© í ìƒì„±
     InitQueue(&RR_Queue);
 
     for (int i = 0; i < 5; i++)
@@ -274,7 +274,7 @@ void RR(process a, process b, process c, process d, process e, int q)
         {
             Enqueue(&RR_Queue, &Task[i]);
         }
-    }//µµÂø½Ã°£ÀÌ 0ÀÎ °ÍÀ» Enqueue
+    }//ë„ì°©ì‹œê°„ì´ 0ì¸ ê²ƒì„ Enqueue
 
     while (time != 0)
     {
@@ -285,12 +285,12 @@ void RR(process a, process b, process c, process d, process e, int q)
             RR_Queue.front->data->runtime[0]++;
             time_count++;
             time--;
-        }  // Å¥¿¡ ÇÁ·Î¼¼½º°¡ ÀÖ´Â °æ¿ì print¹è¿­¿¡ ÀÌ¸§ ÀúÀå, service time °¨¼Ò, runtime Áõ°¡
+        }  // íì— í”„ë¡œì„¸ìŠ¤ê°€ ìˆëŠ” ê²½ìš° printë°°ì—´ì— ì´ë¦„ ì €ì¥, service time ê°ì†Œ, runtime ì¦ê°€
         else if (IsEmpty(&RR_Queue))
         {
             Print[time_count] = 'X';
             time_count++;
-        }  // Å¥°¡ ºñ¾úÀ» °æ¿ì print¹è¿­¿¡ XÀúÀå ¹× time_count Áõ°¡
+        }  // íê°€ ë¹„ì—ˆì„ ê²½ìš° printë°°ì—´ì— Xì €ì¥ ë° time_count ì¦ê°€
 
         for (int i = 0; i < 5; i++)
         {
@@ -298,9 +298,9 @@ void RR(process a, process b, process c, process d, process e, int q)
             {
                 Enqueue(&RR_Queue, &Task[i]);
             }
-        } // ½ÇÇàÁß¿¡ µé¾î¿À´Â ÇÁ·Î¼¼½º°¡ ÀÖ´ÂÁö °Ë»ç 
+        } // ì‹¤í–‰ì¤‘ì— ë“¤ì–´ì˜¤ëŠ” í”„ë¡œì„¸ìŠ¤ê°€ ìˆëŠ”ì§€ ê²€ì‚¬ 
 
-        if (RR_Queue.front->data->runtime[0] == 0) // °ø¹éÀÌ »ı±â´Â Æ¯¼öÇÑ °æ¿ì¿¡ Print¹è¿­¿¡ ÀÌ¸§ÀúÀå, service time °¨¼Ò, runtime Áõ°¡
+        if (RR_Queue.front->data->runtime[0] == 0) // ê³µë°±ì´ ìƒê¸°ëŠ” íŠ¹ìˆ˜í•œ ê²½ìš°ì— Printë°°ì—´ì— ì´ë¦„ì €ì¥, service time ê°ì†Œ, runtime ì¦ê°€
         {
             Print[time_count] = RR_Queue.front->data->name;
             RR_Queue.front->data->service--;
@@ -314,17 +314,17 @@ void RR(process a, process b, process c, process d, process e, int q)
                     Enqueue(&RR_Queue, &Task[i]);
                 }
             }
-            time--; // time °¨¼Ò
+            time--; // time ê°ì†Œ
         }
         if (RR_Queue.front->data->service != 0 && (RR_Queue.front->data->runtime[0]) % (time_Slice) == 0)
         {
             Enqueue(&RR_Queue, RR_Queue.front->data);
             Dequeue(&RR_Queue);
-        }// ¼­ºñ½º ½Ã°£ÀÌ ³²¾ÒÁö¸¸ Å¸ÀÓÄöÅÒÀ» ÃÊ°úÇÑ °æ¿ì ´Ù½Ã µÚ·Î º¸³¿
+        }// ì„œë¹„ìŠ¤ ì‹œê°„ì´ ë‚¨ì•˜ì§€ë§Œ íƒ€ì„í€€í…€ì„ ì´ˆê³¼í•œ ê²½ìš° ë‹¤ì‹œ ë’¤ë¡œ ë³´ëƒ„
         else if ((RR_Queue.front->data->service == 0))
         {
             Dequeue(&RR_Queue);
-        } //¼­ºñ½º Å¸ÀÓÀ» ÃÊ°úÇÑ °æ¿ì Å¥¿¡¼­ »­
+        } //ì„œë¹„ìŠ¤ íƒ€ì„ì„ ì´ˆê³¼í•œ ê²½ìš° íì—ì„œ ëºŒ
     }
 
     Show();
@@ -339,14 +339,14 @@ void SJF(process a, process b, process c, process d, process e)
 
     while (time != 0) {
         int pcs;
-        for (int i = 0; i < 5; i++) { // ¼­ºñ½º¸¦ ½ÃÀÛÇÏÁö ¾ÊÀº ÇÁ·Î¼¼½º ÇÏ³ª ¼±ÅÃ
+        for (int i = 0; i < 5; i++) { // ì„œë¹„ìŠ¤ë¥¼ ì‹œì‘í•˜ì§€ ì•Šì€ í”„ë¡œì„¸ìŠ¤ í•˜ë‚˜ ì„ íƒ
             if (Task[i].r_run != Task[i].service) {
                 pcs = i;
                 break;
             }
         }
 
-        for (int i = 0; i < 5; i++) { // ¼±ÅÃµÈ ÇÁ·Î¼¼½ºº¸´Ù ÂªÀº ÇÁ·Î¼¼½º°¡ ÀÖ´ÂÁö È®ÀÎ ¹× ÀÖÀ¸¸é ÇÁ·Î¼¼½º º¯°æ
+        for (int i = 0; i < 5; i++) { // ì„ íƒëœ í”„ë¡œì„¸ìŠ¤ë³´ë‹¤ ì§§ì€ í”„ë¡œì„¸ìŠ¤ê°€ ìˆëŠ”ì§€ í™•ì¸ ë° ìˆìœ¼ë©´ í”„ë¡œì„¸ìŠ¤ ë³€ê²½
             if ((Task[i].arrival <= time_count) && (Task[i].service < Task[pcs].service) && (Task[i].r_run != Task[i].service)) {
                 pcs = i;
             }
@@ -360,22 +360,22 @@ void SJF(process a, process b, process c, process d, process e)
             Task[pcs].r_run++;
         }
 
-        int turnaround_time = Task[pcs].arrival + Task[pcs].service; // µµÂø½Ã°£°ú ¼­ºñ½º½Ã°£À» ´õÇÑ´Ù
+        int turnaround_time = Task[pcs].arrival + Task[pcs].service; // ë„ì°©ì‹œê°„ê³¼ ì„œë¹„ìŠ¤ì‹œê°„ì„ ë”í•œë‹¤
 
-        while (1) { // ¾ÕÀÇ ÇÁ·Î¼¼½º°¡ ³¡³ª°í ´ÙÀ½ ÇÁ·Î¼¼½º¸¦ ½ÇÇàÇÒ¶§±îÁö °ø¹éÀÌ »ı±â´ÂÁö Á¶»ç ¹Ø °ø¹éÀÌ ÀÖÀ¸¸é ºóÄ­
+        while (1) { // ì•ì˜ í”„ë¡œì„¸ìŠ¤ê°€ ëë‚˜ê³  ë‹¤ìŒ í”„ë¡œì„¸ìŠ¤ë¥¼ ì‹¤í–‰í• ë•Œê¹Œì§€ ê³µë°±ì´ ìƒê¸°ëŠ”ì§€ ì¡°ì‚¬ ë°‘ ê³µë°±ì´ ìˆìœ¼ë©´ ë¹ˆì¹¸
             int count = 0;
             for (int i = 0; i < 5; i++) {
                 if (i == pcs) {
                     continue;
                 }
-                if (turnaround_time >= Task[i].arrival) { // µµÂø½Ã°£°ú ¼­ºñ½º½Ã°£À» ´õÇÑ °ªº¸´Ù ´Ù¸¥ taskÀÇ arrivalÀÌ ÀÛÀ¸¸é count++
+                if (turnaround_time >= Task[i].arrival) { // ë„ì°©ì‹œê°„ê³¼ ì„œë¹„ìŠ¤ì‹œê°„ì„ ë”í•œ ê°’ë³´ë‹¤ ë‹¤ë¥¸ taskì˜ arrivalì´ ì‘ìœ¼ë©´ count++
                     count++;
                 }
             }
-            if (count > 0) { // ÇÑ °³ÀÇ task¶óµµ turnaroundº¸´Ù ÀÛÀº°ªÀÌ ÀÖÀ¸¸é °ø¹éÀÌ »ı±âÁö ¾Ê´Â´Ù
+            if (count > 0) { // í•œ ê°œì˜ taskë¼ë„ turnaroundë³´ë‹¤ ì‘ì€ê°’ì´ ìˆìœ¼ë©´ ê³µë°±ì´ ìƒê¸°ì§€ ì•ŠëŠ”ë‹¤
                 break;
             }
-            turnaround_time++; // turnaroundº¸´Ù ÀÛÀº°ªÀÌ ¾øÀ¸¹Ç·Î °ø¹éÀ» ¸¸µé°í µµÂøÇÏ´Â ´Ù¸¥ task¸¦ Á¶»çÇÏ±â À§ÇØ turnaround++
+            turnaround_time++; // turnaroundë³´ë‹¤ ì‘ì€ê°’ì´ ì—†ìœ¼ë¯€ë¡œ ê³µë°±ì„ ë§Œë“¤ê³  ë„ì°©í•˜ëŠ” ë‹¤ë¥¸ taskë¥¼ ì¡°ì‚¬í•˜ê¸° ìœ„í•´ turnaround++
             Print[print_count] = 'X';
             print_count++;
         }
@@ -390,7 +390,7 @@ void MLFQ(process a, process b, process c, process d, process e, int q) {
     int time_count = 0;
     int time = a.service + b.service + c.service + d.service + e.service;
 
-    Queue Priorirty_1;   // ¿ì¼±¼øÀ§¸¦ À§ÇÑ Å¥ 3°³ »ı¼º
+    Queue Priorirty_1;   // ìš°ì„ ìˆœìœ„ë¥¼ ìœ„í•œ í 3ê°œ ìƒì„±
     Queue Priorirty_2;
     Queue Priorirty_3;
 
@@ -401,28 +401,28 @@ void MLFQ(process a, process b, process c, process d, process e, int q) {
     for (int i = 0; i < 5; i++) {
         if (0 == Task[i].arrival)
             Enqueue(&Priorirty_1, &Task[i]);
-    }//µµÂø½Ã°£ÀÌ 0ÀÎ °ÍÀ» 1¹ø Å¥¿¡ »ğÀÔ
+    }//ë„ì°©ì‹œê°„ì´ 0ì¸ ê²ƒì„ 1ë²ˆ íì— ì‚½ì…
 
     while (time != 0) {
-        ////////////////////////////////////////////1¹øÂ° ¿ì¼±¼øÀ§¸¦ °¡Áö´Â 
+        ////////////////////////////////////////////1ë²ˆì§¸ ìš°ì„ ìˆœìœ„ë¥¼ ê°€ì§€ëŠ” 
         if (!IsEmpty(&Priorirty_1)) {
-            for (int i = 0; i < power(time_Slice, 0); i++) {        //Å¸ÀÓ ½½¶óÀÌ½º ¸¸Å­ ¼öÇà
-                Print[time_count] = Priorirty_1.front->data->name;  // Print¹è¿­¿¡ ÀÌ¸§ÀúÀå
-                Priorirty_1.front->data->service--;                 // service Å¸ÀÓ °¨¼Ò
-                Priorirty_1.front->data->runtime[0]++;              // ½ÇÁ¦ ½ÇÇà½Ã°£ Áõ°¡
+            for (int i = 0; i < power(time_Slice, 0); i++) {        //íƒ€ì„ ìŠ¬ë¼ì´ìŠ¤ ë§Œí¼ ìˆ˜í–‰
+                Print[time_count] = Priorirty_1.front->data->name;  // Printë°°ì—´ì— ì´ë¦„ì €ì¥
+                Priorirty_1.front->data->service--;                 // service íƒ€ì„ ê°ì†Œ
+                Priorirty_1.front->data->runtime[0]++;              // ì‹¤ì œ ì‹¤í–‰ì‹œê°„ ì¦ê°€
             }
             time_count++;
             time--;
         }
-        else if (IsEmpty(&Priorirty_1)) {   // Å¥°¡ ºñ¾úÀ»
-            Print[time_count] = 'X';        // Print¹è¿­¿¡ ÀÌ¸§ÀúÀå X
+        else if (IsEmpty(&Priorirty_1)) {   // íê°€ ë¹„ì—ˆì„
+            Print[time_count] = 'X';        // Printë°°ì—´ì— ì´ë¦„ì €ì¥ X
             time_count++;
         }
         for (int i = 0; i < 5; i++) {
             if (time_count == Task[i].arrival)
                 Enqueue(&Priorirty_1, &Task[i]);
-        } // ½ÇÇà Áß µé¾î¿À´Â ÇÁ·Î¼¼½º °Ë»ç ÈÄ Enqueue 
-        if (Priorirty_1.front->data->runtime[0] == 0) {  // °ø¹éÀÇ °æ¿ì print¹è¿­¿¡ ÀÌ¸§ ÀúÀå, service °¨¼Ò, runtime Áõ°¡
+        } // ì‹¤í–‰ ì¤‘ ë“¤ì–´ì˜¤ëŠ” í”„ë¡œì„¸ìŠ¤ ê²€ì‚¬ í›„ Enqueue 
+        if (Priorirty_1.front->data->runtime[0] == 0) {  // ê³µë°±ì˜ ê²½ìš° printë°°ì—´ì— ì´ë¦„ ì €ì¥, service ê°ì†Œ, runtime ì¦ê°€
             for (int i = 0; i < power(time_Slice, 0); i++) {
                 Print[time_count] = Priorirty_1.front->data->name;
                 Priorirty_1.front->data->service--;
@@ -432,24 +432,24 @@ void MLFQ(process a, process b, process c, process d, process e, int q) {
             time_count++;
             for (int i = 0; i < 5; i++) {
                 if (time_count == Task[i].arrival) {
-                    Enqueue(&Priorirty_1, &Task[i]);    // ½ÇÇà Áß µé¾î¿À´Â ÇÁ·Î¼¼½º °Ë»ç ÈÄ  Enqueue
+                    Enqueue(&Priorirty_1, &Task[i]);    // ì‹¤í–‰ ì¤‘ ë“¤ì–´ì˜¤ëŠ” í”„ë¡œì„¸ìŠ¤ ê²€ì‚¬ í›„  Enqueue
                 }
             }
             time--;
         }
-        if (!IsEmpty(&Priorirty_1) && Priorirty_1.front->data->service != 0 && (Priorirty_1.front->data->runtime[0]) % (int)power(time_Slice, 0) == 0) { // ¼öÇà½Ã°£Àº ³¡³ªÁö ¾Ê¾ÒÁö¸¸ Å¸ÀÓ½½¶óÀÌ½º°¡ ³¡³­ 
+        if (!IsEmpty(&Priorirty_1) && Priorirty_1.front->data->service != 0 && (Priorirty_1.front->data->runtime[0]) % (int)power(time_Slice, 0) == 0) { // ìˆ˜í–‰ì‹œê°„ì€ ëë‚˜ì§€ ì•Šì•˜ì§€ë§Œ íƒ€ì„ìŠ¬ë¼ì´ìŠ¤ê°€ ëë‚œ 
             if (Priorirty_1.front->link == NULL && IsEmpty(&Priorirty_2) && IsEmpty(&Priorirty_3)) {
                 Enqueue(&Priorirty_1, Priorirty_1.front->data);
                 Dequeue(&Priorirty_1);
-            }  // Å¥¿¡ È¥ÀÚ ÀÖ´Â °æ¿ì ¿ì¼±¼øÀ§1 Å¥¿Í, µ¥ÀÌÅÍ Enqueue, ÈÄ¿¡ ¿ì¼±¼øÀ§1 Å¥ Dequeue
+            }  // íì— í˜¼ì ìˆëŠ” ê²½ìš° ìš°ì„ ìˆœìœ„1 íì™€, ë°ì´í„° Enqueue, í›„ì— ìš°ì„ ìˆœìœ„1 í Dequeue
             else {
                 Enqueue(&Priorirty_2, Priorirty_1.front->data);
                 Dequeue(&Priorirty_1);
-            } // ¾Æ´Ò °æ¿ì ¿ì¼±¼øÀ§2Å¥¿Í ¿ì¼±¼øÀ§1ÀÇ µ¥ÀÌÅÍ Enqueue, ÈÄ¿¡ ¿ì¼±¼øÀ§1 Å¥ Dequeue
+            } // ì•„ë‹ ê²½ìš° ìš°ì„ ìˆœìœ„2íì™€ ìš°ì„ ìˆœìœ„1ì˜ ë°ì´í„° Enqueue, í›„ì— ìš°ì„ ìˆœìœ„1 í Dequeue
         }
         else if ((Priorirty_1.front->data->service == 0))
             Dequeue(&Priorirty_1);
-        ////////////////////////////////////////////////////2¹øÂ° 
+        ////////////////////////////////////////////////////2ë²ˆì§¸ 
         while (IsEmpty(&Priorirty_1)) {
             if (!IsEmpty(&Priorirty_2)) {
                 for (int i = 0; i < power(time_Slice, 1); i++) {
@@ -478,7 +478,7 @@ void MLFQ(process a, process b, process c, process d, process e, int q) {
             else if (IsEmpty(&Priorirty_2))
                 break;
         }
-        /////////////////////////////////////////////////// 3¹øÂ° 
+        /////////////////////////////////////////////////// 3ë²ˆì§¸ 
         while (IsEmpty(&Priorirty_1) && IsEmpty(&Priorirty_2)) {
             if (!IsEmpty(&Priorirty_3)) {
                 for (int i = 0; i < power(time_Slice, 2); i++) {
@@ -513,22 +513,23 @@ void MLFQ(process a, process b, process c, process d, process e, int q) {
 
 }
 
+
 void LOTTERY(int min, int max, int A_ticket, int B_ticket)
 {
     int random_num[20];
-    srand(time(NULL)); // ³­¼ö ÃÊ±âÈ­
+    srand(time(NULL)); // ë‚œìˆ˜ ì´ˆê¸°í™”
     printf("  ");
     for (int i = 0; i < 20; i++) {
-        random_num[i] = rand() % (max + 1) + min; // min ~ max ±îÁöÀÇ ³­¼ö »ı¼º
+        random_num[i] = rand() % (max + 1) + min; // min ~ max ê¹Œì§€ì˜ ë‚œìˆ˜ ìƒì„±
         printf("%2d ", random_num[i]);
     }
     printf("\n");
     for (int i = 0; i < 2; i++) {
         printf("%c ", 65 + i);
         for (int j = 0; j < 20; j++) {
-            if (i == 0 && random_num[j] < A_ticket) printf("¡á  "); // A ticket ¿µ¿ª
-            else if (i == 1 && random_num[j] >= A_ticket) printf("¡á  "); // B ticket ¿µ¿ª
-            else printf("¡à  ");
+            if (i == 0 && random_num[j] < A_ticket) printf("â–   "); // A ticket ì˜ì—­
+            else if (i == 1 && random_num[j] >= A_ticket) printf("â–   "); // B ticket ì˜ì—­
+            else printf("â–¡  ");
         }
         printf("\n");
     }
